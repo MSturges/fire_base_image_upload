@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="imageUpload">
+<head>
+  <meta charset="utf-8">
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+  <link rel="stylesheet" href="bower_components/skeleton/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css">
+
+  <script src="js/module/module.js"></script>
+  <script src="js/controllers/master_controller.js"></script>
+  <title>Image Upload</title>
+</head>
+<body ng-controller="MasterController">
+  <style media="screen">
+    .image {
+      height: 760px;
+      width: 760px;
+
+    }
+  </style>
+
+  <form ng-submit="addImage(uploadme)">
+    <input type="file" fileread="uploadme" />
+    <input type="submit" value="Submit">
+  </form>
+
+  <div ng-repeat="image in images">
+    <img src="{{image.image}}" class="image" alt="" />
+  </div>
+
+</body>
+</html>
